@@ -8,12 +8,13 @@
 import pandas as pd
 import json
 
+
 def preparedata2yushuang(input, output):
     relabel_id = []
     with open('../test_data/商业化/std_test_set/relabel.txt', 'r') as fr:
         for line in fr:
-                    relabel_id.append(int(line.strip().split('.')[0]))
-                    print(int(line.strip().split('.')[0]))
+            relabel_id.append(int(line.strip().split('.')[0]))
+            print(int(line.strip().split('.')[0]))
     df = pd.read_excel(input)
     df = df.fillna('')
     row_num = df.shape[0]
@@ -24,18 +25,18 @@ def preparedata2yushuang(input, output):
     for i in range(row_num):
         item_id = df.loc[i, 'item_id']
         if int(item_id) in relabel_id:
-                    item_title = df.loc[i, 'item_title']
-                    item_url = df.loc[i, 'img_url']
-                    category = df.loc[i, 'category']
-                    item_short_title = df.loc[i, 'pred_short_title']
-                    brand = df.loc[i, 'brand']
+            item_title = df.loc[i, 'item_title']
+            item_url = df.loc[i, 'img_url']
+            category = df.loc[i, 'category']
+            item_short_title = df.loc[i, 'pred_short_title']
+            brand = df.loc[i, 'brand']
 
-                    item_info = "<img style=\"width: 200px; height: 200px;\" src=\"" + item_url + "\"/><br>" + item_title + '(' + category + ' ' + \
-                                brand + ')' + '<br>' + item_short_title
+            item_info = "<img style=\"width: 200px; height: 200px;\" src=\"" + item_url + "\"/><br>" + item_title + '(' + category + ' ' + \
+                        brand + ')' + '<br>' + item_short_title
 
-                    dic_ = {"text": item_info, 'category': str(item_id)}
-                    dic_ = json.dumps(dic_, ensure_ascii=False)
-                    file.write(dic_ + '\n')
+            dic_ = {"text": item_info, 'category': str(item_id)}
+            dic_ = json.dumps(dic_, ensure_ascii=False)
+            file.write(dic_ + '\n')
     file.close()
 
 
@@ -62,9 +63,9 @@ def label_for_yushuang(input, output):
     for i in range(len(df)):
         key_list = ['剪辑', '影视', '录制', '特效', '快影']
         if any(key in title_list[i] for key in key_list):
-                    continue
+            continue
         if pid_list[i] in set(valid_pid):
-                    continue
+            continue
         valid_pid.append(pid_list[i])
         hetu_info.append('{}<sep>{}<sep>{}'.format(category1_list[i], category2_list[i], category3_list[i]))
         merchandise_info.append('{}<sep>{}'.format(title_list[i], desc_list[i]))
@@ -76,10 +77,10 @@ def label_for_yushuang(input, output):
     print(len(merchandise_info))
     print(len(item_img_info))
     data = {'photoId': valid_pid,
-                'hetuInfo': hetu_info,
-                'category': merchandise_info,
-                'extData': item_img_info,
-                'frameIds': frameIds}
+            'hetuInfo': hetu_info,
+            'category': merchandise_info,
+            'extData': item_img_info,
+            'frameIds': frameIds}
 
     df_label = pd.DataFrame(data)
     df_label.to_excel(output, index=False)
