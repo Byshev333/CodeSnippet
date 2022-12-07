@@ -19,8 +19,7 @@ import time
 
 headers = {"User-Agent": "Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.86 Safari/537.36"}
 opener = urllib.request.build_opener()
-opener.addheaders = [('User-Agent',
-                      'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/36.0.1941.0 Safari/537.36')]
+opener.addheaders = [('User-Agent', 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/36.0.1941.0 Safari/537.36')]
 urllib.request.install_opener(opener)
 
 
@@ -49,7 +48,7 @@ def __download_one(url, out_path, mylist):
     try:
         urllib.request.urlretrieve(url, out_path)
         img = Image.open(out_path).convert('RGB')
-    except:
+    except BaseException as e:
         print(f"下载失败 {url}")
     else:
         mylist.append(out_path)

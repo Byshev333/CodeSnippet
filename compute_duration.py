@@ -41,8 +41,8 @@ class FileCheck():
         else:
             return "{:.3f}Bytes".format(size)
 
-    def timeConvert(self, size): # 单位换算
-        M , H = 60, 60**2
+    def timeConvert(self, size):  # 单位换算
+        M, H = 60, 60**2
         if size < M:
             return "{:.3f}s".format(size)
         if size < H:
@@ -60,8 +60,8 @@ class FileCheck():
         ls_file = []
         for root, dirs, files in os.walk(file_Dir):
             for file in files:
-                if "mp4" in file: # 只添加mp4文件
-                    ls_file.append(os.path.join(root, file)) # 当前路径下所有非目录子文件
+                if "mp4" in file:  # 只添加mp4文件
+                    ls_file.append(os.path.join(root, file))  # 当前路径下所有非目录子文件
         return ls_file
 
 

@@ -14,7 +14,8 @@ import logging
 from logging.handlers import TimedRotatingFileHandler
 
 
-########################################### 示例1: ###########################################
+# ########################################## 示例1: ###########################################
+
 def init_logger(name=datetime.datetime.now().strftime("%y-%m-%d_%H.%M.%S"), root_dir=None, level=logging.INFO):
     logFormatter = logging.Formatter(fmt="%(asctime)s %(levelname)s %(message)s", datefmt='%y-%m-%d %H:%M:%S')
     rootLogger = logging.getLogger(name)
@@ -47,7 +48,8 @@ def init_logger(name=datetime.datetime.now().strftime("%y-%m-%d_%H.%M.%S"), root
     return rootLogger
 
 
-########################################### 示例2: ###########################################
+# ########################################## 示例2: ###########################################
+
 def set_logger(log_dir, model_name, dataset_name, verbose_level):
 
     # base logger
