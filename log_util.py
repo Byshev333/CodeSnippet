@@ -13,6 +13,7 @@ from pathlib import Path
 import logging
 from logging.handlers import TimedRotatingFileHandler
 
+
 ########################################### 示例1: ###########################################
 def init_logger(name=datetime.datetime.now().strftime("%y-%m-%d_%H.%M.%S"), root_dir=None, level=logging.INFO):
     logFormatter = logging.Formatter(fmt="%(asctime)s %(levelname)s %(message)s", datefmt='%y-%m-%d %H:%M:%S')

@@ -17,4 +17,4 @@ args = parser.parse_args()
 
 # args.p_date = '20221013'
 # SPM = PredictSPM(args.config_file, args.p_date)
-# SPM.predict_processing()
+# SPM.predict_processing()ƒ
