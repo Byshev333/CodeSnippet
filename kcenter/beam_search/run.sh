@@ -1,0 +1,17 @@
+export http_proxy=http://oversea-squid2.ko.txyun:11080 https_proxy=http://oversea-squid2.ko.txyun:11080 no_proxy=localhost,127.0.0.1,localaddress,localdomain.com,internal,corp.kuaishou.com,test.gifshow.com,staging.kuaishou.com
+# python run.py /nlp_group/suzhenpeng/runing_ct/k_center_data/gpt_generate/data/score_x_difficulty.json /nlp_group/suzhenpeng/runing_ct/k_center_data/gpt_generate/data/score_x_difficulty_20w.json 200000
+
+# python run.py /nlp_group/suzhenpeng/runing_ct/k_center_data/gpt_generate/data/score_x_difficulty_sum.json /nlp_group/suzhenpeng/runing_ct/k_center_data/gpt_generate/data/score_x_difficulty_sum_20w.json 200000
+
+# CUDA_VISIBLE_DEVICES=0 python run.py /nlp_group/suzhenpeng/runing_ct/k_center_data/gpt_generate/data_back_track/v0_after_back_track/score_x_difficulty_mean.json /nlp_group/suzhenpeng/runing_ct/k_center_data/gpt_generate/data_back_track/v0_after_back_track/score_x_difficulty_mean_20w.json 200000 &
+# CUDA_VISIBLE_DEVICES=1 python run.py /nlp_group/suzhenpeng/runing_ct/k_center_data/gpt_generate/data_back_track/v0_after_back_track/score_x_difficulty.json /nlp_group/suzhenpeng/runing_ct/k_center_data/gpt_generate/data_back_track/v0_after_back_track/score_x_difficulty_20w.json 200000 &
+
+# CUDA_VISIBLE_DEVICES=0 python run.py /nlp_group/suzhenpeng/runing_ct/k_center_data/gpt_generate/data_back_track/v0_after_back_track/score_x_difficulty_mean.json /nlp_group/suzhenpeng/runing_ct/k_center_data/gpt_generate/data_back_track/v0_after_back_track/score_x_difficulty_mean_20w_top2w.json 200000 &
+# CUDA_VISIBLE_DEVICES=1 python run.py /nlp_group/suzhenpeng/runing_ct/k_center_data/gpt_generate/data_back_track/v0_after_back_track/score_x_difficulty.json /nlp_group/suzhenpeng/runing_ct/k_center_data/gpt_generate/data_back_track/v0_after_back_track/score_x_difficulty_20w_top2w.json 200000 &
+
+# CUDA_VISIBLE_DEVICES=0 python run_zh.py /nlp_group/lvbaibai/running_ct_sparse/yiqiao_pretrain/v2/v2_data_ckpt_zh/st_data_gpt_clean.json.final /nlp_group/lvbaibai/running_ct_sparse/yiqiao_pretrain/v2/v2_data_ckpt_zh/st_data_gpt_clean.json.final_20w 350000 &
+# CUDA_VISIBLE_DEVICES=1 python run_en.py /nlp_group/lvbaibai/running_ct_sparse/yiqiao_pretrain/v2/v2_data_ckpt_en/st_data_gpt_clean.json.final /nlp_group/lvbaibai/running_ct_sparse/yiqiao_pretrain/v2/v2_data_ckpt_en/st_data_gpt_clean.json.final_20w 300000 &
+
+CUDA_VISIBLE_DEVICES=0 python run_zh.py /nlp_group/lvbaibai/running_ct_sparse/yiqiao_pretrain/v2/v1_enhance_logic_add_v2_math_code_logic/cluster/code_v2.json /nlp_group/lvbaibai/running_ct_sparse/yiqiao_pretrain/v2/v1_enhance_logic_add_v2_math_code_logic/cluster/code_v2_sampling.json 15000 &
+CUDA_VISIBLE_DEVICES=0 python run_zh.py /nlp_group/lvbaibai/running_ct_sparse/yiqiao_pretrain/v2/v1_enhance_logic_add_v2_math_code_logic/cluster/logic_v2.json /nlp_group/lvbaibai/running_ct_sparse/yiqiao_pretrain/v2/v1_enhance_logic_add_v2_math_code_logic/cluster/logic_v2_sampling.json 2000 &
+CUDA_VISIBLE_DEVICES=0 python run_zh.py /nlp_group/lvbaibai/running_ct_sparse/yiqiao_pretrain/v2/v1_enhance_logic_add_v2_math_code_logic/cluster/math_v2.json /nlp_group/lvbaibai/running_ct_sparse/yiqiao_pretrain/v2/v1_enhance_logic_add_v2_math_code_logic/cluster/math_v2_sampling.json 15000 &
